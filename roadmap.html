@@ -33,11 +33,22 @@ similar to PostgreSQL, except for two phase commit (2PC) and savepoints.
 (XC uses 2PC for internal use).
 </p> 
 <p> 
-On the other hand, Postgres-XC needs to enhance support for general statements.
-As of Version 0.9.1, Postgres-XC supports statements which can be executed
-on a single data node, or on multiple nodes but as a single step.  
-It does not support yet complex statements such as
-subquery, view, ORDER BY, DISTINCT or 
+On the other hand, Postgres-XC needs to enhance support for general statements.<br>
+As of Version 0.9.2, Postgres-XC supports statements which can be executed
+on a single data node, or on multiple nodes but as a single step.<br>
+This new version adds support for:
+- views<br>
+- extra DDLs<br>
+- ORDER BY/DISTINCT<br>
+- pg_dump, pg_restore<br>
+- sequence full support with GTM<br>
+- basic stored function support.<br>
+- Cold synchronization of Coordinator's Catalog files<br>
+However there are some limitations please refer to <a href="https://sourceforge.net/projects/postgres-xc/files/Version_0.9.2/PG-XC_SQL_Limitations_v0_9_2.pdf/download" target="_blank">
+SQL Limitations </a> document for further details.
+</p>
+<p>
+There is no support yet for
 <code>SELECT</code> in <code>FROM</code> clause.
 Support for <code>CURSOR</code> is a future issue too.
 </p> 
@@ -53,41 +64,27 @@ Current plan of future releases and features are as follows:
  
 <!-- ==== For version 1.0 ==== --> 
 <h4> 
-Version 1.0 (Late in July, 2010)
+Version 1.0 (Late in September, 2010)
 </h4> 
  
-<p class="inner"> 
-<code>ORDER BY</code><br> 
-<code>DISTINCT</code><br> 
-Stored functions<br> 
-subqueries<br> 
-Views<br> 
-Rules<br> 
-DDLs<br> 
-Regression tests<br> 
-<p> 
- 
-<!-- ==== For version 1.1 ==== --> 
-<h4> 
-Version 1.1 (Late in September, 2010)
-</h4> 
- 
-<p class="inner"> 
+<p class="inner">
 Cluster-wide installer<br> 
 Cluster-wide operation utilities<br> 
 Regression tests<br> 
 Logical backup/restore (pg_dump, pg_restore)<br> 
 Basic cross-node operation<br> 
 TEMP Table<br> 
+Cursor support<br>
 Extended Query Protocol (for JDBC)<br> 
 Global timestamp<br> 
 Driver support (ECPG, JDBC, PHP, etc.)<br> 
 Forward Cursor (w/o <code>ORDER BY</code>)<br> 
+subqueries<br>
 </p> 
  
-<!-- ==== Beyond Version 1.1 ==== --> 
+<!-- ==== Beyond Version 1.0 ==== --> 
 <h4> 
-Beyond Version 1.1
+Beyond Version 1.0
 </h4> 
  
 <p class="inner"> 
