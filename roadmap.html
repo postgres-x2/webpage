@@ -24,35 +24,36 @@ Postgres-XC Roadmap
  
 <!-- ==== Current Limintation ==== --> 
 <h3> 
-Current Limitation of Postgres-XC
+Current Limitations of Postgres-XC
 </h3> 
  
 <p> 
 At present, Postgres-XC provides major transaction management features
-similar to PostgreSQL, except for two phase commit (2PC) and savepoints.
-(XC uses 2PC for internal use).
+similar to PostgreSQL, except for savepoints.
 </p> 
 <p> 
 On the other hand, Postgres-XC needs to enhance support for general statements.<br>
-As of Version 0.9.2, Postgres-XC supports statements which can be executed
-on a single data node, or on multiple nodes but as a single step.<br>
+As of Version 0.9.3, Postgres-XC supports statements which can be executed
+on a single data node, or on multiple nodes for single and multi step.<br>
 This new version adds support for:
-- views<br>
-- extra DDLs<br>
-- ORDER BY/DISTINCT<br>
-- pg_dump, pg_restore<br>
-- sequence full support with GTM<br>
-- basic stored function support.<br>
-- Cold synchronization of Coordinator's Catalog files<br>
-However there are some limitations please refer to <a href="https://sourceforge.net/projects/postgres-xc/files/Version_0.9.2/PG-XC_SQL_Limitations_v0_9_2.pdf/download" target="_blank">
+- Cursor Support<br />
+- Basic cross-node operation<br />
+- Global timestamp<br />
+- DDL synchronisation<br />
+- Cluster-wide installer<br />
+- Cluster-wide operation utilities<br />
+- Driver support (ECPG, JDBC, PHP, etc.)<br />
+- Extended Query Protocol (for JDBC)<br />
+- Support of external 2PC from application<br />
+
+However there are some limitations please refer to <a href="https://sourceforge.net/projects/postgres-xc/files/Version_0.9.3/PG-XC_SQL_Limitations_v0_9_3.pdf/download" target="_blank">
 SQL Limitations </a> document for further details.
 </p>
 <p>
 There is no support yet for
 <code>SELECT</code> in <code>FROM</code> clause.
-Support for <code>CURSOR</code> is a future issue too.
 </p> 
-<p>We will be expanding the coverage of supported SQL as an item of particular focus in the coming months.</p>
+<p>We will be expanding the coverage of supported SQL and High-Availability (HA) features as main guidelines in the coming months.</p>
 <!-- ==== Planned feature === --> 
 <h3> 
 Upcoming Releases and Features
@@ -63,7 +64,7 @@ Current plan of future releases and features are as follows:
 </p> 
  
 <!-- ==== For version 0.9.3 ==== --> 
-<h4> 
+<!-- <h4> 
 Version 0.9.3 (Late in September, 2010)
 </h4> 
  
@@ -80,7 +81,7 @@ Global timestamp<br>
 Driver support (ECPG, JDBC, PHP, etc.)<br> 
 Forward Cursor (w/o <code>ORDER BY</code>)<br> 
 subqueries<br>
-</p> 
+</p> -->
  
 <!-- ==== For Version 1.0 ==== --> 
 <h4> 
@@ -91,17 +92,15 @@ Version 1.0 (Late in December, 2010)
 Physical backup/restore incl. PITR<br> 
 Cross-node oepration optimization<br> 
 More variety of statements such as <code>SELECT</code> in <code>INSERT</code><br> 
-Prepared statements<br> 
-General aggregate functions<br> 
+Full support Prepared statements and cluster-wide recovery<br> 
+HA Capability<br />
+General aggregate functions<br>
 Savepoint<br> 
 Session Parameters<br> 
-2PC from Apps<br> 
 Forward cursor with <code>ORDER BY</code><br> 
 Backward cursor<br> 
 Batch, statement pushdown<br> 
-Caralog synchronize with DDLs<br> 
-Trigger<br> 
-GLobal constraints<br> 
+Global constraints<br> 
 Tuple relocation (distrubute key update)<br> 
 Performance improvement <br> 
 Regression tests
@@ -113,8 +112,9 @@ Beyond Version 1.0
 </h4> 
 
 <p class="inner">
-HA Capability<br>
-GTM-Standby<br>
+HA Capability<br />
+GTM-Standby<br />
+Trigger<br />
 </p>
 
 </body> 
