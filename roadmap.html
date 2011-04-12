@@ -33,29 +33,27 @@ similar to PostgreSQL, except for savepoints.
 </p> 
 <p> 
 On the other hand, Postgres-XC needs to enhance support for general statements.<br />
-As of Version 0.9.3, Postgres-XC supports statements which can be executed
+As of Version 0.9.4, Postgres-XC supports statements which can be executed
 on a single data node, or on multiple nodes for single and multi step.<br />
 This new version adds support for:<br />
 <ul>
-<li>Cursor Support</li>
-<li>Basic cross-node operation</li>
-<li>Global timestamp</li>
-<li>DDL synchronisation</li>
-<li>Cluster-wide installer</li>
-<li>Cluster-wide operation utilities</li>
-<li>Driver support (ECPG, JDBC, PHP, etc.)</li>
-<li>Extended Query Protocol (for JDBC)</li>
-<li>Support of external 2PC from application</li>
+<li>pg_regress</li>
+<li>Merge with PostgreSQL 9.0.3</li>
+<li>Pooler connection clean-up with CLEAN CONNECTION</li>
+<li>EXECUTE DIRECT support, launch queries directly on target nodes!</li>
+<li>INSERT SELECT basic support</li>
+<li>IMMEDIATE constraints</li>
+<li>Code stabilization (No crash, no freeze whatver the query) and a loooot of bugs fixed!</li>
 </ul>
 
-However there are some limitations please refer to <a href="https://sourceforge.net/projects/postgres-xc/files/Version_0.9.3/PG-XC_SQL_Limitations_v0_9_3.pdf/download" target="_blank">
+However there are some limitations please refer to <a href="https://sourceforge.net/projects/postgres-xc/files/Version_0.9.4/PG-XC_SQL_Limitations_v0_9_4.pdf/download" target="_blank">
 SQL Limitations </a> document for further details.
 </p>
 <p>
 There is no support yet for
 <code>SELECT</code> in <code>FROM</code> clause.
 </p> 
-<p>We will be expanding the coverage of supported SQL and as well High-Availability (HA) features in the coming months.</p>
+<p>We will be expanding the coverage of supported SQL, stabilization and High-Availability (HA) features in the coming months.</p>
 <!-- ==== Planned feature === --> 
 <h3> 
 Upcoming Releases and Features
@@ -87,13 +85,19 @@ subqueries<br>
  
 <!-- ==== For Version 1.0 ==== --> 
 <h4>
-Version 0.9.4 (March, 2011)
+Version 0.9.5 (March, 2011)
 </h4>
  
 <p class="inner">
 <ul>
 <li>License modified from LGPL to BSD</li>
-<li>Merge with PostgreSQL 9.0.3</li>
+<li>SQL/plpgsql functions</li>
+<li>GROUP BY</li>
+<li>CURRENT OF</li>
+<li>pg_regress extension</li>
+<li>ROLE, GRANT, REVOKE</li>
+<li>Pooler for multiple users</li>
+<li>Session and local parameters</li>
 <li>HA Capability
   <ul>
   <li>Datanode mirroring functionality: multiple Datanodes seen as only one node,<br />
@@ -111,13 +115,16 @@ Version 0.9.4 (March, 2011)
 
 <!-- === Beyond Version 1.0 === --->
 <h4> 
-After Version 0.9.4, on the way to Version 1.0
+After Version 0.9.5, on the way to Version 1.0
 </h4>
 
 <p class="inner">
 <ul>
 <li>PITR cluster-wide recovery</li>
+<li>Standby node method based on PostgreSQL's HOT Standby</li>
 <li>Trigger</li>
+<li>SELECT INTO</li>
+<li>SSL connection protocol for pooler (secure your cluster!)</li>
 <li>Temporary (TEMP) tables</li>
 <li>HOT standby full support</li>
 <li>Cross-node operation optimization</li> 
