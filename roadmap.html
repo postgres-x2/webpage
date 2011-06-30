@@ -33,27 +33,36 @@ similar to PostgreSQL, except for savepoints.
 </p> 
 <p> 
 On the other hand, Postgres-XC needs to enhance support for general statements.<br />
-As of Version 0.9.4, Postgres-XC supports statements which can be executed
+As of Version 0.9.5, Postgres-XC supports statements which can be executed
 on a single data node, or on multiple nodes for single and multi step.<br />
 This new version adds support for:<br />
 <ul>
+<li>License changes to PostgreSQL license</li>
+<li>PITR and barrier mechanism (create consistent recovery points in a cluster of nodes)</li>
+<li>GTM standby</li>
+<li>GROUP BY</li>
+<li>Single-step PL/PGSQL function support</li>
+<li>ROLE DDL, REVOKE, GRANT, etc.</li>
+<li>Connection pooling supports multiple users</li>
+<li>Session parameters</li>
+<li>Improvement of aggregates</li>
+<li>New types of distribution keys for table distribution</li>
+<li>Cluster setting simplified</li>
+<li>GTM proxy reconnection</li>
+<li>Merge with PostgreSQL 9.0.4</li>
 <li>pg_regress</li>
-<li>Merge with PostgreSQL 9.0.3</li>
-<li>Pooler connection clean-up with CLEAN CONNECTION</li>
-<li>EXECUTE DIRECT support, launch queries directly on target nodes!</li>
-<li>INSERT SELECT basic support</li>
-<li>IMMEDIATE constraints</li>
-<li>Code stabilization (No crash, no freeze whatver the query) and a loooot of bugs fixed!</li>
+<li>DBT-1 stabilization</li>
+<li>More code stabilization</li>
 </ul>
 
-However there are some limitations please refer to <a href="https://sourceforge.net/projects/postgres-xc/files/Version_0.9.4/PG-XC_SQL_Limitations_v0_9_4.pdf/download" target="_blank">
+However there are some limitations please refer to <a href="https://sourceforge.net/projects/postgres-xc/files/Version_0.9.5/PG-XC_SQL_Limitations_v0_9_5.pdf/download" target="_blank">
 SQL Limitations </a> document for further details.
 </p>
 <p>
 There is no support yet for
 <code>SELECT</code> in <code>FROM</code> clause.
 </p> 
-<p>We will be expanding the coverage of supported SQL, stabilization and High-Availability (HA) features in the coming months.</p>
+<p>In the next months, we will expand HA features with GTM standby improvement and synchronous streaming replication. Another focus is the support of multi-prepared statements or complicated statements such as subqueries, SELECT INTO, etc.</p>
 <!-- ==== Planned feature === --> 
 <h3> 
 Upcoming Releases and Features
@@ -85,37 +94,24 @@ subqueries<br>
  
 <!-- ==== For Version 1.0 ==== --> 
 <h4>
-Version 0.9.5 (June, 2011)
+Version 0.9.6 (September, 2011)
 </h4>
  
 <p class="inner">
 <ul>
-<li>License modified from LGPL to BSD</li>
-<li>SQL/plpgsql functions</li>
-<li>GROUP BY</li>
-<li>CURRENT OF</li>
-<li>pg_regress extension</li>
-<li>ROLE, GRANT, REVOKE</li>
-<li>Pooler for multiple users</li>
-<li>Session and local parameters</li>
-<li>HA Capability
-  <ul>
-  <li>Datanode mirroring functionality: multiple Datanodes seen as only one node,<br />
-      SQL-based replication</li>
-  <li>XC Cluster Manager: manage in an allocated shared memory space node information,<br />
-      used to report node failures</li>
-  <li>XC watcher: Central part managing the XC Cluster.<br />
-      It contains commands to start/stop/restart the cluster.<br />
-      It is also in charge of gathering and reporting to XCM entities nodes that failed.</li>
-  </ul>
-</li>
+<li>GTM standby improvements</li>
+<li>HAVING</li>
+<li>Extension of synchronous streaming replication</li>
+<li>Creation of tables in subset of nodes</li>
+<li>Entension of query planning with remote node scan extensions</li>
 <li>Bug corrections</li>
+<li>Performance improvement</li>
 </ul>
 </p>
 
 <!-- === Beyond Version 1.0 === --->
 <h4> 
-After Version 0.9.5, on the way to Version 1.0
+After Version 0.9.6, on the way to Version 1.0
 </h4>
 
 <p class="inner">
@@ -132,7 +128,6 @@ After Version 0.9.5, on the way to Version 1.0
 <li>More variety of statements</li>
 <li>GTM-Standby</li>
 <li>Savepoint</li>
-<li>Session Parameters</li> 
 <li>Backward cursor</li>
 <li>Batch, statement pushdown</li>
 <li>Global constraints</li>
