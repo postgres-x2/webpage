@@ -33,29 +33,25 @@ similar to PostgreSQL, except for savepoints.
 </p> 
 <p> 
 On the other hand, Postgres-XC needs to enhance support for general statements.<br />
-As of Version 0.9.5, Postgres-XC supports statements which can be executed
+As of Version 0.9.7, Postgres-XC supports statements which can be executed
 on a single data node, or on multiple nodes for single and multi step.<br />
 This new version adds support for:</p>
 <ul>
-<li>New code base is PostgreSQL 9.1 stable code (Synchronous replication, etc).</li>
-<li>HAVING is now supported</li>
-<li>GROUP BY push down is optimized</li>
-<li>Temporary objects are supported (sequence, view, table, etc.)</li>
-<li>Regressions are stabilized for all the possible cluster configurations</li>
-<li>PREPARE, EXECUTE are re-enabled and fully supported</li>
-<li>make check support has been added</li>
-<li>Stabilization of XC with 32b and 64b machines</li>
-<li>Support for parametrized queries</li>
+<li>Node subsets and sub clusters (table data distributed in a portion of nodes)</li>
+<li>Cluster node management with SQL and catalog extensions</li>
+<li>Dynamic reload of pool connection information</li>
+<li>Window functions</li>
+<li>SELECT INTO/CREATE TABLE AS</li>
+<li>INSERT SELECT complete support</li>
+<li>DML remote planning (partial expression push-down)</li>
+<li>DEFAULT values (non-shippable expressions: volatile functions, etc.)</li>
+<li>GTM Standby synchronous, asynchronous recovery</li>
 </ul>
 
-<p>However there are some limitations please refer to <a href="https://sourceforge.net/projects/postgres-xc/files/Version_0.9.6/PG-XC_SQL_Limitations_v0_9_6.pdf/download" target="_blank">
+<p>However there are some limitations please refer to <a href="https://sourceforge.net/projects/postgres-xc/files/Version_0.9.7/PG-XC_SQL_Limitations_v0_9_7.pdf/download" target="_blank">
 SQL Limitations </a> document for further details.
 </p>
-<p>
-There is no support yet for
-<code>SELECT</code> in <code>FROM</code> clause.
-</p> 
-<p>In the next months, we will expand HA features with GTM standby improvement and synchronous streaming replication. Another focus is the support of CTAS (CREATE TABLE AS), stable/volatile function pushdown, subqueries, SELECT INTO, etc.</p>
+<p>In the next months, we will expand on overall stabilization of Postgres-XC, mainly bug fix and regression diff fix. TABLESPACE, TRIGGER and cluster bootstrap will be additional release guidelines.</p>
 <!-- ==== Planned feature === --> 
 <h3> 
 Upcoming Releases and Features
@@ -85,43 +81,37 @@ Forward Cursor (w/o <code>ORDER BY</code>)<br>
 subqueries<br>
 </p> -->
  
-<!-- ==== For Version 1.0 ==== --> 
 <h4>
-Version 0.9.7 (December 2011, January 2012)
+Next release V??? (April 2012)
 </h4>
  
 <p class="inner">
 <ul>
-<li>Node subsets and sub clusters (table data distributed in a portion of nodes)</li>
-<li>Cluster node management with SQL and catalog extensions</li>
-<li>Window functions</li>
-<li>SELECT INTO/CREATE TABLE AS</li>
 <li>SERIAL</li>
-<li>BARRIER timeout</li>
+<li>TABLESPACE</li>
+<li>TRIGGER</li>
+<li>Regression stabilization</li>
+<li>Relation-size functions</li>
+<li>Fast query shipping</li>
+<li>Cluster bootstrap</li>
 </ul>
 </p>
 
 <!-- === Beyond Version 1.0 === --->
 <h4> 
-After Version 0.9.7, on the way to Version 1.0
+Beyond 1.0
 </h4>
 
 <p class="inner">
 <ul>
-<li>PITR cluster-wide recovery</li>
-<li>Standby node method based on PostgreSQL's HOT Standby</li>
-<li>Trigger</li>
-<li>Tablespace</li>
 <li>SSL connection protocol for pooler (secure your cluster!)</li>
 <li>HOT standby full support</li>
 <li>Cross-node operation optimization</li> 
-<li>GTM-Standby</li>
 <li>Savepoint</li>
-<li>Backward cursor</li>
 <li>Batch, statement pushdown</li>
 <li>Global constraints</li>
 <li>Tuple relocation (distribute key update)</li>
-<li>Regression tests</li>
+<li>Node addition/deletion</li>
 </ul>
 </p>
 
