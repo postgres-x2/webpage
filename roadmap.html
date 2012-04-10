@@ -32,26 +32,20 @@ At present, Postgres-XC provides major transaction management features
 similar to PostgreSQL, except for savepoints.
 </p> 
 <p> 
-On the other hand, Postgres-XC needs to enhance support for general statements.<br />
-As of Version 0.9.7, Postgres-XC supports statements which can be executed
-on a single data node, or on multiple nodes for single and multi step.<br />
-This new version adds support for:</p>
+As of Version 1.0beta1, Postgres-XC supports statements which can be executed
+and support for identification of expressions non-shippable to remote nodes.<br />
+This new version is centralized on stabilization and adds support for:</p>
 <ul>
-<li>Node subsets and sub clusters (table data distributed in a portion of nodes)</li>
-<li>Cluster node management with SQL and catalog extensions</li>
-<li>Dynamic reload of pool connection information</li>
-<li>Window functions</li>
-<li>SELECT INTO/CREATE TABLE AS</li>
-<li>INSERT SELECT complete support</li>
-<li>DML remote planning (partial expression push-down)</li>
-<li>DEFAULT values (non-shippable expressions: volatile functions, etc.)</li>
-<li>GTM Standby synchronous, asynchronous recovery</li>
+<li>Fast query shipping (FQS)</li>
+<li>SERIAL</li>
+<li>TABLESPACE</li>
+<li>Utility to clean up 2PC transactions in cluster (pgxc_clean)</li>
+<li>Utility for initialization of GTM (initgtm)</li>
+<li>Relation-size functions</li>
+<li>Regression stabilization</li>
 </ul>
 
-<p>However there are some limitations please refer to <a href="https://sourceforge.net/projects/postgres-xc/files/Version_0.9.7/PG-XC_SQL_Limitations_v0_9_7.pdf/download" target="_blank">
-SQL Limitations </a> document for further details.
-</p>
-<p>In the next months, we will expand on overall stabilization of Postgres-XC, mainly bug fix and regression diff fix. TABLESPACE, TRIGGER and cluster bootstrap will be additional release guidelines.</p>
+<p>Currently in beta1 state, the next effort to a stable version will be stabilization and bug fix.</p>
 <!-- ==== Planned feature === --> 
 <h3> 
 Upcoming Releases and Features
@@ -80,26 +74,37 @@ Driver support (ECPG, JDBC, PHP, etc.)<br>
 Forward Cursor (w/o <code>ORDER BY</code>)<br> 
 subqueries<br>
 </p> -->
- 
+
+<h4>Next release 1.0.0</h4>
+<ul>
+<li>Fast query shipping (FQS)</li>
+<li>SERIAL</li>
+<li>TABLESPACE</li>
+<li>Utility to clean up 2PC transactions in cluster (pgxc_clean)</li>
+<li>Utility for initialization of GTM (initgtm)</li>
+<li>Relation-size functions</li>
+<li>Regression stabilization and diff cleanup</li>
+<li>Stable regressions</li>
+</ul>
+
 <h4>
-Next release V??? (April 2012)
+Next release V1.1 (October 2012)
 </h4>
  
 <p class="inner">
 <ul>
-<li>SERIAL</li>
-<li>TABLESPACE</li>
-<li>TRIGGER</li>
-<li>Regression stabilization</li>
-<li>Relation-size functions</li>
-<li>Fast query shipping</li>
+<li>Data redistribution</li>
+<li>Tuple relocation (distribute key update)</li>
+<li>Online server addition and removal</li>
 <li>Cluster bootstrap</li>
+<li>Rules</li>
+<li>Triggers</li>
 </ul>
 </p>
 
-<!-- === Beyond Version 1.0 === --->
+<!-- === Beyond Version 1.1 === --->
 <h4> 
-Beyond 1.0
+Beyond 1.1
 </h4>
 
 <p class="inner">
@@ -110,8 +115,6 @@ Beyond 1.0
 <li>Savepoint</li>
 <li>Batch, statement pushdown</li>
 <li>Global constraints</li>
-<li>Tuple relocation (distribute key update)</li>
-<li>Node addition/deletion</li>
 </ul>
 </p>
 
