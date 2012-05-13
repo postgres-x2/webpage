@@ -32,17 +32,19 @@ At present, Postgres-XC provides major transaction management features
 similar to PostgreSQL, except for savepoints.
 </p> 
 <p> 
-As of Version 1.0beta1, Postgres-XC supports statements which can be executed
+As of Version 1.0beta2, Postgres-XC supports statements which can be executed
 and support for identification of expressions non-shippable to remote nodes.<br />
 This new version is centralized on stabilization and adds support for:</p>
 <ul>
 <li>Fast query shipping (FQS)</li>
 <li>SERIAL</li>
 <li>TABLESPACE</li>
+<li>Rules</li>
 <li>Utility to clean up 2PC transactions in cluster (pgxc_clean)</li>
 <li>Utility for initialization of GTM (initgtm)</li>
 <li>Relation-size functions</li>
-<li>Regression stabilization</li>
+<li>All 139 regressions passing</li>
+<li>Support of "make world"</li>
 </ul>
 
 <p>Currently in beta1 state, the next effort to a stable version will be stabilization and bug fix.</p>
@@ -84,7 +86,9 @@ subqueries<br>
 <li>Utility for initialization of GTM (initgtm)</li>
 <li>Relation-size functions</li>
 <li>Regression stabilization and diff cleanup</li>
+<li>Rules</li>
 <li>Stable regressions</li>
+<li>Support for make world</li>
 </ul>
 
 <h4>
@@ -97,7 +101,6 @@ Next release V1.1 (October 2012)
 <li>Tuple relocation (distribute key update)</li>
 <li>Online server addition and removal</li>
 <li>Cluster bootstrap</li>
-<li>Rules</li>
 <li>Triggers</li>
 </ul>
 </p>
