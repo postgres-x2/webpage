@@ -22,86 +22,47 @@ TODO: Should prototyping/application partner issue be included here?
 Postgres-XC Roadmap
 </h2> 
  
-<!-- ==== Current Limitation ==== --> 
-<h3> 
-Current Limitations of Postgres-XC
-</h3> 
- 
-<p> 
-At present, Postgres-XC provides major transaction management features
-similar to PostgreSQL, except for savepoints.
-</p> 
-<p> 
-As of Version 1.0beta2, Postgres-XC supports statements which can be executed
+<!-- ==== Latest features ==== --> 
+<h3>Latest features of Postgres-XC</h3>
+
+<p>At present, Postgres-XC provides major transaction management features
+similar to PostgreSQL, except for savepoints.</p>
+<p>As of Version 1.0, Postgres-XC supports statements which can be executed
 and support for identification of expressions non-shippable to remote nodes.<br />
 This new version is centralized on stabilization and adds support for:</p>
 <ul>
 <li>Fast query shipping (FQS)</li>
 <li>SERIAL</li>
 <li>TABLESPACE</li>
+<li>EXTENSION</li>
 <li>Rules</li>
 <li>Utility to clean up 2PC transactions in cluster (pgxc_clean)</li>
 <li>Utility for initialization of GTM (initgtm)</li>
 <li>Relation-size functions</li>
 <li>All 139 regressions passing</li>
 <li>Support of "make world"</li>
+<li>Support for vpath installation</li>
+<li>Support of compilation on MacOS</li>
 </ul>
 
-<p>Currently in beta1 state, the next effort to a stable version will be stabilization and bug fix.</p>
 <!-- ==== Planned feature === --> 
-<h3> 
-Upcoming Releases and Features
-</h3> 
+<h3>Upcoming Releases and Features</h3>
  
-<p> 
-Current plan of future releases and features are as follows:
-</p> 
+<p>Current plan of future releases and features are as follows:</p>
  
-<!-- ==== For version 0.9.3 ==== --> 
-<!-- <h4> 
-Version 0.9.3 (Late in September, 2010)
-</h4> 
- 
-<p class="inner">
-Cluster-wide installer<br> 
-Cluster-wide operation utilities<br> 
-Regression tests<br> 
-Logical backup/restore (pg_dump, pg_restore)<br> 
-Basic cross-node operation<br> 
-TEMP Table<br> 
-Cursor support<br>
-Extended Query Protocol (for JDBC)<br> 
-Global timestamp<br> 
-Driver support (ECPG, JDBC, PHP, etc.)<br> 
-Forward Cursor (w/o <code>ORDER BY</code>)<br> 
-subqueries<br>
-</p> -->
-
-<h4>Next release 1.0.0</h4>
-<ul>
-<li>Fast query shipping (FQS)</li>
-<li>SERIAL</li>
-<li>TABLESPACE</li>
-<li>Utility to clean up 2PC transactions in cluster (pgxc_clean)</li>
-<li>Utility for initialization of GTM (initgtm)</li>
-<li>Relation-size functions</li>
-<li>Regression stabilization and diff cleanup</li>
-<li>Rules</li>
-<li>Stable regressions</li>
-<li>Support for make world</li>
-</ul>
-
 <h4>
-Next release V1.1 (October 2012)
+Next release V1.1 (May 2013)
 </h4>
  
 <p class="inner">
 <ul>
+<li>Merge with PostgreSQL 9.2</li>
 <li>Data redistribution</li>
-<li>Tuple relocation (distribute key update)</li>
+<li>Planner improvements</li>
 <li>Online server addition and removal</li>
-<li>Cluster bootstrap</li>
 <li>Triggers</li>
+<li>Cross-node operation optimization</li> 
+<li>Global constraints</li>
 </ul>
 </p>
 
@@ -112,12 +73,10 @@ Beyond 1.1
 
 <p class="inner">
 <ul>
-<li>SSL connection protocol for pooler (secure your cluster!)</li>
-<li>HOT standby full support</li>
-<li>Cross-node operation optimization</li> 
-<li>Savepoint</li>
+<li>Global deadlock detection</li>
+<li>Foreign Data wrapper</li>
 <li>Batch, statement pushdown</li>
-<li>Global constraints</li>
+<li>SSI</li>
 </ul>
 </p>
 
