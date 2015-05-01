@@ -32,7 +32,7 @@ p {font-size:90%;
    margin-left:2em;
    font-family:Arial;}
 .h4p {font-size:90%;	/* after <h4> header */
-   margin-left:2em;
+   margin-left:3em;
    font-family:Arial;}
 /* <plain> --> left margin should be the same as the parent
 p.plain{font-size:90%;
@@ -52,7 +52,7 @@ p.box {font-size:90%;
        border-width:2px;
        border-style:solid;
        padding:5px;}
-p.innerbox {font-size;90%;
+p.innerbox {font-size:90%;
        margin-left:2em;
        border-width:2px;
        border-style:solid;
@@ -63,8 +63,12 @@ li {font-size:90%;
 li.inner {font-size:90%;
           margin-top:4pt;
           margin-bottom:4pt;
-          margin-left:2em;
+          margin-left:1em;
          }
+.eod {font-size:80%;
+	font-family:Arial;
+	margin-right:2em;
+	text-align:right;}
 li tt {font-size:90%;
        font-family:monospace;}
 /*
